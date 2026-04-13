@@ -1,0 +1,24 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-merge-conflict
+
+  - repo: local
+    hooks:
+      - id: composer-validate
+        name: Composer validate
+        language: system
+        entry: scripts/pre-commit/validate-composer.sh
+        pass_filenames: true
+        files: ^composer\.json$
+
+      - id: php-checks
+        name: PHP lint/test (scoped)
+        language: system
+        entry: scripts/pre-commit/run-checks.sh
+        pass_filenames: true
+        files: ^(src/|tests/|composer\.json|phpunit\.xml)

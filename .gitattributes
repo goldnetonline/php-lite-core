@@ -1,0 +1,10 @@
+/.github export-ignore
+/.pre-commit-config.yaml export-ignore
+/Makefile export-ignore
+/phpunit.xml export-ignore
+/tests export-ignore
+/scripts export-ignore
+/.gitignore export-ignore
+/.cache export-ignore
+/docs export-ignore
+/.github/workflows/release* export-ignore
