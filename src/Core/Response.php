@@ -39,7 +39,7 @@ class Response
      * @param string $sresponseText
      * @param int $code    The response code
      */
-    public function html(string $responseText = null, int $code = 200): Self
+    public function html(?string $responseText = null, int $code = 200): Self
     {
         $this->responseText = $responseText;
         $this->code = $code;
@@ -53,7 +53,7 @@ class Response
      * @param array $object
      * @param int $code    The response code
      */
-    public function json(array $object = null, int $code = 200): Self
+    public function json(?array $object = null, int $code = 200): Self
     {
         $this->responseText = \json_encode($object);
         $this->code = $code;

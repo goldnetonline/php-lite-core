@@ -51,10 +51,10 @@ class Request
         if (!in_array($this->port, ['80', '443'])) {
             $this->domain .= ":{$this->port}";
         }
-        $this->serverIp = $this->server['SERVER_ADDR'];
-        $this->requestIp = $this->server['REMOTE_ADDR'];
+        $this->serverIp = $this->server['SERVER_ADDR'] ?? null;
+        $this->requestIp = $this->server['REMOTE_ADDR'] ?? null;
         $this->method = $this->server['REQUEST_METHOD'];
-        $this->rawQueryString = $this->server['QUERY_STRING'];
+        $this->rawQueryString = $this->server['QUERY_STRING'] ?? '';
         $this->queryStringArray = $this->parseQueryString($this->rawQueryString);
     }
 
