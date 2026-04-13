@@ -3,3 +3,4 @@ vendor/
 .cache/
 .env
 .vscode/
+composer.lock
