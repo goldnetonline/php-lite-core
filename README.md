@@ -53,25 +53,26 @@ See [Core Components](https://github.com/goldnetonline/php-lite-core/tree/main/s
 To use this package from GitHub Packages:
 
 1. Configure authentication in your `composer.json`:
-   ```json
-   {
-     "repositories": {
-       "github-packages": {
-         "type": "composer",
-         "url": "https://composer.github.com/goldnetonline"
-       }
-     }
-   }
-   ```
+
+    ```json
+    {
+        "repositories": {
+            "github-packages": {
+                "type": "composer",
+                "url": "https://composer.github.com/goldnetonline"
+            }
+        }
+    }
+    ```
 
 2. Or via token in `~/.composer/auth.json`:
-   ```json
-   {
-     "github-oauth": {
-       "github.com": "YOUR_GITHUB_TOKEN"
-     }
-   }
-   ```
+    ```json
+    {
+        "github-oauth": {
+            "github.com": "YOUR_GITHUB_TOKEN"
+        }
+    }
+    ```
 
 ## Release Process
 
@@ -80,10 +81,10 @@ To use this package from GitHub Packages:
 1. Ensure all tests pass: `make qa`
 2. Merge changes to `main`
 3. Create and push a semantic version tag:
-   ```bash
-   git tag v1.0.0
-   git push origin v1.0.0
-   ```
+    ```bash
+    git tag v1.0.0
+    git push origin v1.0.0
+    ```
 4. Wait for the `release-packages` workflow to complete
 
 ### Release Distribution
