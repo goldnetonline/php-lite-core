@@ -67,8 +67,12 @@ class Response
      */
     public function send()
     {
-        if ($this->responseText && !config('app.debug') && $this->contentType == 'text/html') {
-            $this->responseText = \preg_replace("/<!--(.*?)-->|\s\B|\n/", "", $this->responseText);
+           if ($this->responseText && !config('app.debug') && $this->contentType == 'text/html') {
+            // Safe HTML minification that preserves intentional spaces
+            $this->responseText = \preg_replace('/<!--.*?-->/s', '', $this->responseText);      // Remove comments
+            $this->responseText = \preg_replace('/>\s+</', '><', $this->responseText);         // Remove space between tags
+            $this->responseText = \preg_replace('/\s+/', ' ', $this->responseText);            // Collapse multiple spaces to single
+            $this->responseText = \trim($this->responseText);                                  // Trim leading/trailing spaces
         }
         http_response_code($this->code);
         header("Content-Type: " . $this->contentType);
